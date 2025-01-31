@@ -22,13 +22,15 @@
 
     // PROBLEM 3 - Implement `changeUsername` and `changePassword` so state is updated on every change
     function App() {
-      let username // 1- use the state hook to create this state
-      let password // 1- use the state hook to create this state
+      let [username, setUsername] = useState('username') // 1- use the state hook to create this state
+      let [password, setPassword] = useState('********') // 1- use the state hook to create this state
       const changeUsername = event => {
         // 3- Implement the change handler
+        setUsername(event.target.value);
       }
       const changePassword = event => {
         // 3- Implement the change handler
+        setPassword(event.target.value);
       }
       return (
         <form>
@@ -36,6 +38,7 @@
             <label htmlFor="fname">Username </label><br />
             {/* 2- this input needs an `onChange` */}
             <input
+              onChange={changeUsername}
               id="fname"
               type="text"
               placeholder="Type Username"
@@ -48,12 +51,13 @@
             <label htmlFor="password">Password </label><br />
             {/* 2- this input needs an `onChange` */}
             <input
+              onChange={changePassword}
               id="lname"
               type="password"
               placeholder="Type password"
               minLength={8}
             /><br />
-            You are typing: {password}
+            You are typing: {'*'.repeat(password.length)}
           </div>
 
           <div>
