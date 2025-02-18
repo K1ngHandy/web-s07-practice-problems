@@ -45,7 +45,11 @@
         <form onSubmit={onSubmit}>
           <div>
             {/* 1- the select is missing some props */}
-            <label>Food <select>
+            <label>Food <select
+              name="food" 
+              onChange={onChange}
+              value={values.food}
+              >
               <option value="">--Select Food--</option>
               <option value="pizza">Pizza</option>
               <option value="broccoli">Broccoli</option>
@@ -55,11 +59,17 @@
           <div>
             {/* 2- the radio inputs are missing some props */}
             <label>ReactJS <input
+              checked={values.lib === "react"}
+              onChange={onChange}
+              name="lib"
               value="react"
               type="radio"
             />
             </label>
             <label>SvelteJS <input
+              checked={values.lib === "svelte"}
+              onChange={onChange}
+              name="lib"
               value="svelte"
               type="radio"
             />
@@ -68,6 +78,9 @@
           <div>
             {/* 3- the checkbox input is missing some props */}
             <label>Having fun <input
+              checked={values.fun}
+              onChange={onChange}
+              name="fun"
               type="checkbox"
             /></label>
           </div>
