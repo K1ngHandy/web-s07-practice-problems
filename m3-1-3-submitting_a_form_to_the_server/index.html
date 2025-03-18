@@ -26,21 +26,20 @@
 
       const onSubmit = event => {
         /*
-         1- The following lines are out of order! Order them correctly and un-comment them. Test that the success and failure messages from the server render on the page.
+        1- The following lines are out of order! Order them correctly and un-comment them. Test that the success and failure messages from the server render on the page.
         */
-
-        // setSuccess(res.data.message)
-        // event.preventDefault()
-        // .then(res => {
-        // axios.post('https://webapis.bloomtechdev.com/cranky_login', values)
-        // setFailure(err.response.data.message)
-        // })
-        // console.log(values)
-        // setFailure('')
-        // .catch(err => {
-        // })
-        // setSuccess('')
-
+      
+        event.preventDefault()
+        axios.post('https://webapis.bloomtechdev.com/cranky_login', values)
+          .then(res => {
+            setSuccess(res.data.message)
+            setFailure('')
+          })
+          .catch(err => {
+            setFailure(err.response.data.message)
+            setSuccess('')
+          })
+          console.log(values)
       }
       const onChange = event => {
         const { id, value } = event.target
